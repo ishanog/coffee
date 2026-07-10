@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Coffee Shop Logo">
+                <span class="logo-text">Coffee Shop</span></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="contact.html"><span class="contact-nav">CONTACT</span></a></li>
+            <li><a href="signin.html">SIGN IN</a></li>
+        </ul>
+        <button class="cart-button">
+            <!-- <img src="images/cart.jpg" alt="Cart Icon"> -->
+            <span class="cart-text">Orders</span>
+        </button>
+    </nav>
+
+    <section class="intro">
+        <div class="intro-text">
+            <h2>GET IN TOUCH</h2>
+            <h1>We'd love to hear<br>
+                <span class="mid">from you</span>
+            </h1>
+            <p>Questions about sourcing, wholesale inquiries, or just want<br>to talk coffee — we're always around.</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-left">
+            <h2>Contact Details</h2>
+            <p><strong>Email<br></strong> info@coffeeshop.com</p>
+            <p><strong>Phone<br></strong> (123) 456-7890</p>
+            <p><strong>Address<br></strong> 123 Coffee Street, Brew City</p>
+            <p><strong>HOURS<br></strong> Mon-Fri 8am-6pm EST</p>
+            <div class="b2binfo">
+                <h2>Wholesale & B2B<br></h2>
+                <p>Running a café, restaurant, or hotel? We offer custom roast profiles and direct sourcing partnerships. Select "Wholesale" in your subject line.</p>
+            </div>
+        </div>
+
+        <div class="contact-right">
+            <div class="cointainer1">
+                <h2>Send a message</h2>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                            </div>
+                            <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com">
+
+                        </div>
+                    </div>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="text" name="subject" required placeholder="What's on your mind?">
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Tell us more....."></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+
+</html>
