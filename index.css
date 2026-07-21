@@ -325,10 +325,12 @@ body {
     transition: color 0.3s ease;
 }
 
+/* -----------------CONTACT-PAGE------------------- */
+
 .intro {
     background-color: #21140C;
     padding: 80px 60px; 
-    margin-top: 4%;
+    margin-top: 3%;
 }
 
 .intro-text {
@@ -364,7 +366,7 @@ body {
 }
 
 
-/* -----------------CONTACT-PAGE------------------- */
+
 .contact{
     display: flex;
     justify-content: space-between;
@@ -386,9 +388,13 @@ body {
     color: #F3EAD8;
 }
 
+.contact-left strong{
+    color: #BE854B;
+}
+
 .contact-left p {
     font-size: 1.25rem;
-    color: #887468;
+    color: #F3EAD8;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -418,19 +424,26 @@ body {
 }
 
 .contact-right input,
-.contact-right textarea {
+.contact-right textarea{
     width: 80%;
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #887468;
     border-radius: 6px;
     background-color: #1C1009;
-    color: #F3EAD8;
+    color: #887468;
+    font-size: 1.25rem;
 }   
+
 .contact-right label{
     color: #887468;
     font-weight: bold;
     margin-bottom: 7px;
+    font-size: 1.25rem;
+}
+
+.contact-right ::placeholder{
+    color: #887653;
 }
 
 .contact-right button {
@@ -443,6 +456,7 @@ body {
     cursor: pointer;
     transition: background 0.3s ease;
     width: 85%;
+    height: 58px;
 }
 
 .contact-right button:hover {
@@ -460,21 +474,26 @@ body {
     flex-direction: column;
 }
 
+.form-group label{
+    font-size: 1.25rem;
+}
+
 .b2binfo{
     background-color: #201208;
     border: 1px solid #BE874B;
     padding: 20px;
     border-radius: 15px;
     width: 75%;
+    margin-top: 80px;
 }
 
-.b2binfo h2{
-    font-size: 1.15rem;
+.b2binfo h1{
+    font-size: 2.5rem;
     color: #BE874B;
 }
 
 .b2binfo p{
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 /* -----------loginpage-------------- */
@@ -509,22 +528,12 @@ body {
 .login_left h1{
     color: #F3EAD8;
     font-size: 64px;
-    /* margin-bottom: -5px; */
-    margin: 40px 0 15px;
 }
 
 .login_left p, label{
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     color: #88745C;
 }
-
-/* .login_left form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-start;
-    margin: 40px;
-} */
 
 label{
     color:#8b7663;
@@ -556,7 +565,7 @@ input{
 }
 
 input::placeholder{
-    color:#8b7663;
+    color: #867C6A;
 }
 
 input:focus{
@@ -565,6 +574,7 @@ input:focus{
 }
 .lform-group label{
     display:inline-block;
+    font-size: 1.25rem;
 }
 
 .forgot-link{
@@ -586,6 +596,7 @@ input:focus{
     font-weight:600;
     cursor:pointer;
     margin-top:35px;
+    margin-left: 15px;
 }
 .register_link{
     text-align:center;
@@ -619,4 +630,48 @@ input:focus{
     border-left:none;
     border-radius:0 12px 12px 0;
     margin-left:-5px;
+}
+/* Container for the tab buttons */
+.tab-switcher {
+    display: flex;
+    width: 360px;
+}
+
+/* Updated Tab Buttons Styling */
+.signup,
+.create_acc {
+    width: 180px;
+    height: 48px;
+    border: 1px solid #3d2a1d;
+    cursor: pointer;
+    font-size: 16px;
+    background: transparent;
+    color: #8f7a66;
+    transition: all 0.3s ease;
+}
+
+.signup {
+    border-radius: 12px 0 0 12px;
+}
+
+.create_acc {
+    border-radius: 0 12px 12px 0;
+    margin-left: -1px; /* Align border cleanly */
+}
+
+/* Active State for Tabs */
+.signup.active,
+.create_acc.active {
+    background: #d39a57;
+    color: #1b100a;
+    border-color: #d39a57;
+}
+
+/* Form Visibility Toggle */
+.form-content {
+    display: none;
+}
+
+.form-content.active {
+    display: block;
 }
