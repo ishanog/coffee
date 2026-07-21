@@ -20,41 +20,70 @@
             <li><a href="signin.html"><span class="signin-nav">SIGN IN</span></a></li>
         </ul>
         <button class="cart-button">
-            <!-- <img src="images/cart.jpg" alt="Cart Icon"> -->
             <span class="cart-text">Orders</span>
         </button>
     </nav>
 
     <section class="login_land">
         <div class="login_right">
-            <img src="./images/bean_logic.jpg">
+            <img src="./images/bean_logic.jpg" alt="Bean Flow Visual">
         </div>
-
-
 
         <div class="login_left">
-            <button class="signup">Sign in</button>
-            <button class="create_acc">Create account</button>
-            <h1>Welcome Back</h1>
-            <p>Sign in to track your orders and save favourite origins.</p>
-            <form>
-                <div class="lform-row">
-                    <div class="form-group">
-                        <label for="email">EMAIL</label>
-                        <input type="email" id="email" name="email" required placeholder="you@example.com">
+            <!-- Tab Switcher Box -->
+            <div class="tab-switcher">
+                <button id="signin-btn" class="signup active" onclick="switchTab('signin')">Sign in</button>
+                <button id="signup-btn" class="create_acc" onclick="switchTab('signup')">Create account</button>
+            </div>
+
+            <!-- ================= SIGN IN VIEW ================= -->
+            <div id="signin-view" class="form-content active">
+                <h1>Welcome Back</h1>
+                <p>Sign in to track your orders and save favourite beans.</p>
+                <form method="post">
+                    <div class="lform-row">
+                        <div class="form-group">
+                            <label for="email">EMAIL</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com">
+                        </div>
+                        <div class="lform-group">
+                            <label for="password">PASSWORD</label>
+                            <a href="#" class="forgot-link">Forgot?</a>
+                            <input type="password" id="password" name="password" required placeholder="************">
+                        </div>
                     </div>
-                    <div class="lform-group">
-                        <label for="password">PASSWORD</label>
-                        <a herf="#" class="forgot-link">Forgot?</a>
-                        <input type="password" id="password" name="password" required placeholder="************">
+                    <button type="submit" class="signin-btn">Sign In &rarr;</button>
+                </form>
+                <p class="register_link">Don't have an account? <a href="#" onclick="switchTab('signup')">Create One</a></p>
+            </div>
+
+            <!-- ================= CREATE ACCOUNT VIEW ================= -->
+            <div id="signup-view" class="form-content">
+                <h1>Join BeanFlow</h1>
+                <p>Create your account to start ordering from 18 countries.</p>
+                <form>
+                    <div class="lform-row">
+                        <div class="form-group">
+                            <label for="fullname">FULL NAME</label>
+                            <input type="text" id="fullname" name="fullname" required placeholder="Jane Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">EMAIL</label>
+                            <input type="email" id="signup-email" name="email" required placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">PASSWORD</label>
+                            <input type="password" id="signup-password" name="password" required placeholder="********">
+                        </div>
                     </div>
-                </div>
-                <button>Sign In</button>
-            </form>
-            <p class="register_link">Dont have an account? <a href="#">Create One</a></p>
+                    <button type="submit" class="signin-btn">Create Account &rarr;</button>
+                </form>
+                <p class="register_link">Already have an account? <a href="#" onclick="switchTab('signin')">Sign in</a></p>
+            </div>
         </div>
     </section>
-        <section class="footer">
+
+    <section class="footer">
         <div class="copyright">
             <p>&copy; 2026 BeanFlow. All rights reserved.</p>
         </div>
@@ -62,11 +91,30 @@
             <a href="#">Facebook</a>
             <a href="#">Instagram</a>
             <a href="#">Twitter</a>
-
         </div>
     </section>
 
-</body>
+    <!-- JavaScript Toggle Function -->
+    <script>
+        function switchTab(tab) {
+            const signinBtn = document.getElementById('signin-btn');
+            const signupBtn = document.getElementById('signup-btn');
+            const signinView = document.getElementById('signin-view');
+            const signupView = document.getElementById('signup-view');
 
+            if (tab === 'signin') {
+                signinBtn.classList.add('active');
+                signupBtn.classList.remove('active');
+                signinView.classList.add('active');
+                signupView.classList.remove('active');
+            } else {
+                signupBtn.classList.add('active');
+                signinBtn.classList.remove('active');
+                signupView.classList.add('active');
+                signinView.classList.remove('active');
+            }
+        }
+    </script>
+</body>
 
 </html>
