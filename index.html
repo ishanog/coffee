@@ -17,9 +17,8 @@
                 <span class="logo-text">BeanFlow</span></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#home">COFFEES</a></li>
+            <li><a href="#coffees">COFFEES</a></li>
             <li><a href="#proces">PROCESS</a></li>
-            <li><a href="about.html">ABOUT US</a></li>
             <li><a href="contact.html">CONTACT</a></li>
             <li><a href="signin.html">SIGN IN</a></li>
         </ul>
@@ -42,7 +41,7 @@
                 carries the story of its soil.</p>
 
             <div class="hero-bttn">
-                <a href="#"><button>Explore Coffees</button></a>
+                <a href="#coffees"><button>Explore Coffees</button></a>
                 <a href="#proces"><button id="process-bttn">Our Process</button></a>
             </div>
             <div class="hero-stats">
@@ -56,11 +55,346 @@
         </div>
     </div>
 
-    <section class="coffees">
+    <section class="coffees" id="coffees">
         <div class="heading">
             <h3>WORLD COLLECTION</h3>
             <h1>SINGLE BEANS</h1>
             <P>Every bean tells a story of soil, altitude, and the hands that <br>harvested it.</P>
+        </div>
+
+        <div class="container2">
+            <div class="filter-tabs">
+                <button class="tab-btn active" data-region="all">All</button>
+                <button class="tab-btn" data-region="africa">Africa</button>
+                <button class="tab-btn" data-region="americas">Americas</button>
+                <button class="tab-btn" data-region="asia">Asia</button>
+                <button class="tab-btn" data-region="middle-east">Middle-East</button>
+            </div>
+
+            <!-- Currency Selector -->
+            <div class="currency-selector">
+                <label for="currency">Select Currency / Region:</label>
+                <select id="currency" onchange="updatePrices()">
+                    <option value="NPR" selected>🇳🇵 NPR (Rs.)</option>
+                    <option value="USD">🇺🇸 USD ($)</option>
+                    <option value="EUR">🇪🇺 EUR (€)</option>
+                    <option value="GBP">🇬🇧 GBP (£)</option>
+                </select>
+            </div>
+
+            <div class="cards-grid">
+
+                <!-- Card 1, africa -->
+                <div class="card" data-region="africa">
+                    <div class="card-image">
+                        <img src="./images/Yirgacheffe Coffee.jpg" alt="Yirgacheffe Coffee">
+                        <span class="badge top-left">ET Ethiopia</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="22">$22</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Yirgacheffe Natural</h3>
+
+                        </div>
+                        <p class="meta">Yirgacheffe · 1,800–2,200m</p>
+                        <p class="description">
+                            Grown in Ethiopia's storied highlands, this natural-process bean delivers an intoxicating
+                            bouquet of wild blueberry and jasmine.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Blueberry</span>
+                            <span class="tag">Jasmine</span>
+                            <span class="tag">Dark Chocolate</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="22">Add to Order — $22</button>
+                    </div>
+                </div>
+                <div class="card" data-region="africa">
+                    <div class="card-image">
+                        <img src="./images/Guji Natural.webp" alt="Guji Natural">
+                        <span class="badge top-left">ET Ethiopia</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="21">$21</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Guji Natural</h3>
+                        </div>
+                        <p class="meta">Guji, Ethiopia · 1,900–2,300m</p>
+                        <p class="description">
+                            From neighboring highlands; delivers intense berry sweetness with a silky, dessert-like
+                            finish.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Strawberry Jam</span>
+                            <span class="tag">Peach Blossom</span>
+                            <span class="tag">Milk Chocolate</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="21">Add to Order — $21</button>
+                    </div>
+                </div>
+
+                <!-- Card 2, americas -->
+
+
+                <div class="card" data-region="americas">
+                    <div class="card-image">
+                        <img src="./images/Nariño Washed.jpg"
+                            alt="Nariño Coffee">
+                        <span class="badge top-left">CO Colombia</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="20">$20</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Nariño Washed</h3>
+                        </div>
+                        <p class="meta">Nariño · 1,900–2,100m</p>
+                        <p class="description">
+                            From the volcanic soils of southern Colombia, expect a clean, bright cup with crisp red
+                            apple acidity and a long caramel sweetness.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Red Apple</span>
+                            <span class="tag">Caramel</span>
+                            <span class="tag">Hazelnut</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="20">Add to Order — $20</button>
+                    </div>
+                </div>
+
+
+                <div class="card" data-region="americas">
+                    <div class="card-image">
+                        <img src="./images/bean_logic.jpg"
+                            alt="Nariño Coffee">
+                        <span class="badge top-left">PA Panama</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="30">$30</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Geisha Natural</h3>
+                        </div>
+                        <p class="meta">Boquete · 1,600–2,000m</p>
+                        <p class="description">
+                            The holy grail of American specialty coffee; shares Yirgacheffe's
+                            intense floral jasmine aroma and sweet stone-fruit clarity.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Jasmine</span>
+                            <span class="tag">Peach</span>
+                            <span class="tag">Bergamot</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="30">Add to Order — $30</button>
+                    </div>
+                </div>
+
+                <div class="card" data-region="americas">
+                    <div class="card-image">
+                        <img src="./images/Huehuetenango Natural.jpg"
+                            alt="Nariño Coffee">
+                        <span class="badge top-left">GT Guatemala</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="20">$20</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Huehuetenango Natural</h3>
+
+                        </div>
+                        <p class="meta">Huehuetenango · 1,600–2,000m</p>
+                        <p class="description">
+                            High-elevation natural process that trades traditional heavy
+                            body for juicy dark fruit notes and crisp acidity.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Plum</span>
+                            <span class="tag">Blackberry</span>
+                            <span class="tag">Toasted Almond</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="20">Add to Order — $20</button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+
+                <div class="card" data-region="asia">
+                    <div class="card-image">
+                        <img src="./images/Himalayan Specialty Natural.webp"
+                            alt="Kintamani Coffee">
+                        <span class="badge top-left">NP Nepal</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="19">$19</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Himalayan Specialty Natural</h3>
+
+                        </div>
+                        <p class="meta">Bali · 1,200–1,700m</p>
+                        <p class="description">
+                            High Himalayan shade-grown Arabica; naturally processed lots give a delicate floral aroma
+                            with deep plum sweetness.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Orange Blossom</span>
+                            <span class="tag">Dried Plum</span>
+                            <span class="tag">Dark Honey</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="19">Add to Order — $19</button>
+                    </div>
+                </div>
+
+                <div class="card" data-region="asia">
+                    <div class="card-image">
+                        <img src="./images/Guji Natural.webp"
+                            alt="Kintamani Coffee">
+                        <span class="badge top-left">ID Indonesia</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="19">$19</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Kintamani Honey</h3>
+                        </div>
+                        <p class="meta">Bali · 1,200–1,700m</p>
+                        <p class="description">
+                            A volcanic terroir yields an earthy, full-bodied cup. Honey processing reveals tropical
+                            fruit sweetness with a cedar-smoke depth.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Tropical Fruit</span>
+                            <span class="tag">Brown Sugar</span>
+                            <span class="tag">Cedar</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="19">Add to Order — $19</button>
+                    </div>
+                </div>
+
+                <div class="card" data-region="asia">
+                    <div class="card-image">
+                        <img src="./images/Nariño Washed.jpg"
+                            alt="Kintamani Coffee">
+                        <span class="badge top-left">MM Myanmar</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="20">$20</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Mandalay Mogok Natural</h3>
+                        </div>
+                        <p class="meta">Shan Hills · 1,200–1,700m</p>
+                        <p class="description">
+                            Emerging specialty origin; smallholder lots produce a smooth, winy sweetness with rich dark
+                            chocolate undercurrents.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Red Grape</span>
+                            <span class="tag">Wild Honey</span>
+                            <span class="tag">Cocoa Nibs</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="20">Add to Order — $20</button>
+                    </div>
+                </div>
+
+                <div class="card" data-region="asia">
+                    <div class="card-image">
+                        <img src="./images/Yirgacheffe Coffee.jpg"
+                            alt="Kintamani Coffee">
+                        <span class="badge top-left">CN China</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="22">$22</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Yunnan Baoshan Anaerobic</h3>
+                        </div>
+                        <p class="meta">Yunnan · 1,400–1,800m</p>
+                        <p class="description">
+                            China's premier specialty region; natural anaerobic fermentation delivers punchy tropical
+                            fruit with a clean tea finish.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Passion Fruit</span>
+                            <span class="tag">Dried Mango</span>
+                            <span class="tag">Black Tea</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="22">Add to Order — $22</button>
+                    </div>
+                </div>
+
+                <div class="card" data-region="middle-east">
+                    <div class="card-image">
+                        <img src="./images/Himalayan Specialty Natural.webp"
+                            alt="Nariño Coffee">
+                        <span class="badge top-left">YE Yemen</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="30">$30</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Haraaz Natura</h3>
+
+                        </div>
+                        <p class="meta">Haraaz Mountains · 1,900–2,100m</p>
+                        <p class="description">
+                            Grown on steep stone terraces; delivers a syrupy, winey body with deep dark berry sweetness
+                            and wild spice aromas.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Dried Figs</span>
+                            <span class="tag">Black Cherry</span>
+                            <span class="tag">Dark Cocoa</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="30">Add to Order — $30</button>
+                    </div>
+                </div>
+
+                <div class="card" data-region="middle-east">
+                    <div class="card-image">
+                        <img src="./images/Huehuetenango Natural.jpg"
+                            alt="Nariño Coffee">
+                        <span class="badge top-left">SA Saudi Arabia</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="40">$40</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Khawlani Natural</h3>
+
+                        </div>
+                        <p class="meta">Jazan Mountains · 1,600–2,000m</p>
+                        <p class="description">
+                            UNESCO-recognized ancient heritage crop; smooth, naturally sweet with a rich date-like
+                            finish and low acidity.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Dried Dates</span>
+                            <span class="tag">Saffron,</span>
+                            <span class="tag">Roasted Almond</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="40">Add to Order — $40</button>
+                    </div>
+                </div>
+
+                <div class="card" data-region="middle-east">
+                    <div class="card-image">
+                        <img src="./images/bean_logic.jpg"
+                            alt="Nariño Coffee">
+                        <span class="badge top-left">YE Yemen</span>
+                        <span class="badge top-right"><span class="price" data-price-usd="25">$25</span></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">Dhamar Natural</h3>
+
+                        </div>
+                        <p class="meta">Dhamar Highlands · 1,800–2,200m</p>
+                        <p class="description">
+                            Punchier acidity than other Yemeni beans; offers tart red fruit brightness grounded by warm
+                            baking spices.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Pomegranate</span>
+                            <span class="tag">Dried Cranberry</span>
+                            <span class="tag">Nutmeg</span>
+                        </div>
+                        <button class="btn-primary" data-price-usd="25">Add to Order — $25</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -99,9 +433,80 @@
             <a href="#">Facebook</a>
             <a href="#">Instagram</a>
             <a href="#">Twitter</a>
-
         </div>
+
+
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const cards = document.querySelectorAll('.card');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // 1. Remove active state from all tabs and set to clicked tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    // 2. Get region value from dataset
+                    const selectedRegion = tab.dataset.region;
+
+                    // 3. Filter cards
+                    cards.forEach(card => {
+                        const cardRegion = card.dataset.region;
+
+                        if (selectedRegion === 'all' || cardRegion === selectedRegion) {
+                            card.classList.remove('hide');
+                        } else {
+                            card.classList.add('hide');
+                        }
+                    });
+                });
+            });
+        });
+
+        // Exchange rates relative to 1 USD
+        const exchangeRates = {
+            USD: { symbol: "$", rate: 1, prefix: true },
+            NPR: { symbol: "Rs ", rate: 154.5, prefix: true }, // 1 USD ≈ 154.5 NPR
+            EUR: { symbol: "€", rate: 0.92, prefix: true },
+            GBP: { symbol: "£", rate: 0.78, prefix: true }
+        };
+
+        function updatePrices() {
+            const selectedCurrency = document.getElementById("currency").value;
+            const { symbol, rate, prefix } = exchangeRates[selectedCurrency];
+
+            // 1. Update standalone price display tags
+            document.querySelectorAll(".price").forEach((el) => {
+                const usdPrice = parseFloat(el.getAttribute("data-price-usd"));
+                const converted = Math.round(usdPrice * rate);
+
+                // Format e.g., "$22" or "Rs. 3,400"
+                const formattedPrice = prefix
+                    ? `${symbol}${converted.toLocaleString()}`
+                    : `${converted.toLocaleString()} ${symbol}`;
+
+                el.innerText = formattedPrice;
+            });
+
+            // 2. Update button text
+            document.querySelectorAll(".btn-primary").forEach((btn) => {
+                const usdPrice = parseFloat(btn.getAttribute("data-price-usd"));
+                const converted = Math.round(usdPrice * rate);
+
+                const formattedPrice = prefix
+                    ? `${symbol}${converted.toLocaleString()}`
+                    : `${converted.toLocaleString()} ${symbol}`;
+
+                btn.innerText = `Add to Order — ${formattedPrice}`;
+            });
+        }
+
+        // Run once on initial page load
+        document.addEventListener("DOMContentLoaded", updatePrices);
+    </script>
 </body>
 
 
