@@ -1,7 +1,11 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 body {
     margin: 0;
     font-family: "Playfair Display", serif;
-      /* font-family:"DM Sans", system-ui, sans-serif; */
     background-color: #190F0A;
 }
 
@@ -215,6 +219,29 @@ body {
 
 /* ---------------COFFES-LIST-------------- */
 
+.currency-selector{
+    margin-bottom: 3%;
+}
+
+.currency-selector label{
+    font-size: 1.5rem;
+    color: #a08e81;
+    letter-spacing: 0;
+}
+
+.currency-selector select{
+    background-color: #1a1412; /* Dark coffee background */
+  color: #f3e9dc;            /* Creamy text */
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  border: 1px solid #3d2b1f; /* Subtle warm border */
+  border-radius: 6px;
+  padding: 8px 36px 8px 12px; /* Extra right padding for custom arrow */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
 .coffees{
     margin-top: 10%;
 }
@@ -237,7 +264,168 @@ body {
     font-size: 20px;
 }
 
+.container2 {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+/* Tabs Navigation */
+.filter-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background-color: #26190F;
+  color: #927363;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 4%;
+}
+
+.tab-btn.active, 
+.tab-btn:hover {
+  background-color: #c17728;
+  color: #321e14;
+  font-weight: 700;
+}
+
+/* Grid Layout */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+/* Card Styling */
+.card {
+  background-color: #291303;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hide animation class */
+.card.hide {
+  display: none;
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 16px;
+  background: #180F0A;
+  backdrop-filter: blur(8px);
+  color: #c17728;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #180F0A;
+}
+
+.badge.top-left{ 
+    left: 16px; 
+}
+
+.badge.top-right{
+    right: 16px;
+    top: 155px;
+}
+
+/* Card Body */
+.card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-header {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.card-title {
+  margin: 9px;
+  font-size: 1.8rem;
+  color: #F3EAD8;
+  text-align: center;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: #f4a060;
+}
+
+.meta {
+  font-size: 1.25rem;
+  color: #816a59;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.description {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: #a08e81;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  text-align: justify;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.tag {
+  background-color: #301E0F;
+  color: #f59c59;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* Button */
+.btn-primary {
+  width: 100%;
+  background-color: #BE874B;
+  color: #120b08;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
 
 /* ---------last section------------ */
 .last {
