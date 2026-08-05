@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeanFlow</title>
-    <link rel="stylesheet" href="index.css">
+    <title>BeanFlow - Sign In</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+<link rel="stylesheet" href="style.css?v=1.1">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -30,7 +32,6 @@
         </div>
 
         <div class="login_left">
-            <!-- Tab Switcher Box -->
             <div class="tab-switcher">
                 <button id="signin-btn" class="signup active" onclick="switchTab('signin')">Sign in</button>
                 <button id="signup-btn" class="create_acc" onclick="switchTab('signup')">Create account</button>
@@ -40,20 +41,24 @@
             <div id="signin-view" class="form-content active">
                 <h1>Welcome Back</h1>
                 <p>Sign in to track your orders and save favourite beans.</p>
-                <form method="post">
-                    <div class="lform-row">
-                        <div class="form-group">
-                            <label for="email">EMAIL</label>
-                            <input type="email" id="email" name="email" required placeholder="you@example.com">
-                        </div>
-                        <div class="lform-group">
-                            <label for="password">PASSWORD</label>
-                            <a href="#" class="forgot-link">Forgot?</a>
-                            <input type="password" id="password" name="password" required placeholder="************">
-                        </div>
-                    </div>
-                    <button type="submit" class="signin-btn">Sign In &rarr;</button>
-                </form>
+                
+                <p id="signin-success" class="success-msg" style="display: none; color: #4BB543;"></p>
+
+                <!-- Inside #signin-view -->
+<form id="signin-form" method="POST" action="login.php">
+    <div class="lform-row">
+        <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+        <div class="lform-group">
+            <label for="password">PASSWORD</label>
+            <a href="#" class="forgot-link">Forgot?</a>
+            <input type="password" id="password" name="password" required placeholder="************">
+        </div>
+    </div>
+    <button type="submit" class="signin-btn">Sign In &rarr;</button>
+</form>
                 <p class="register_link">Don't have an account? <a href="#" onclick="switchTab('signup')">Create One</a></p>
             </div>
 
@@ -61,7 +66,11 @@
             <div id="signup-view" class="form-content">
                 <h1>Join BeanFlow</h1>
                 <p>Create your account to start ordering from 18 countries.</p>
-                <form>
+
+                <!-- Error Display Paragraph -->
+                <p id="register-error" style="display: none; color: #ff6b6b; font-weight: bold; margin-bottom: 15px;"></p>
+                
+                <form id="signup-form" action="register.php" method="POST">
                     <div class="lform-row">
                         <div class="form-group">
                             <label for="fullname">FULL NAME</label>
@@ -76,8 +85,10 @@
                             <input type="password" id="signup-password" name="password" required placeholder="********">
                         </div>
                     </div>
+
                     <button type="submit" class="signin-btn">Create Account &rarr;</button>
                 </form>
+
                 <p class="register_link">Already have an account? <a href="#" onclick="switchTab('signin')">Sign in</a></p>
             </div>
         </div>
@@ -93,28 +104,103 @@
             <a href="#">Twitter</a>
         </div>
     </section>
+<script>
+// 1. Standalone Bottom-Right Toast Helper Function
+function showToast(message, type = 'error') {
+    let container = document.getElementById('toast-container');
+    
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        document.body.appendChild(container);
+    }
 
-    <!-- JavaScript Toggle Function -->
-    <script>
-        function switchTab(tab) {
-            const signinBtn = document.getElementById('signin-btn');
-            const signupBtn = document.getElementById('signup-btn');
-            const signinView = document.getElementById('signin-view');
-            const signupView = document.getElementById('signup-view');
+    const toast = document.createElement('div');
+    toast.className = `toast-msg ${type}`;
+    toast.textContent = message;
 
-            if (tab === 'signin') {
-                signinBtn.classList.add('active');
-                signupBtn.classList.remove('active');
-                signinView.classList.add('active');
-                signupView.classList.remove('active');
-            } else {
-                signupBtn.classList.add('active');
-                signinBtn.classList.remove('active');
-                signupView.classList.add('active');
-                signinView.classList.remove('active');
-            }
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3500);
+}
+
+// 2. SIGN IN AJAX Handler
+document.getElementById('signin-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('login.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(async response => {
+        const rawText = await response.text();
+        try {
+            return JSON.parse(rawText);
+        } catch (err) {
+            console.error('Server Output Error:', rawText);
+            throw new Error('Server returned an invalid response.');
         }
-    </script>
-</body>
+    })
+    .then(data => {
+        if (data.status === 'error') {
+            showToast(data.message, 'error');
+        } else if (data.status === 'success') {
+            showToast(data.message, 'success');
+            setTimeout(() => {
+                window.location.href = data.redirect;
+            }, 1200);
+        }
+    })
+    .catch(err => {
+        console.error('Sign In Error:', err);
+        showToast(err.message || 'Login failed.', 'error');
+    });
+});
 
+// 3. REGISTRATION AJAX Handler
+document.getElementById('signup-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('register.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(async response => {
+        const rawText = await response.text();
+        try {
+            return JSON.parse(rawText);
+        } catch (jsonErr) {
+            console.error('Server Output Error:', rawText);
+            throw new Error('Server returned an invalid response.');
+        }
+    })
+    .then(data => {
+        if (data.status === 'error') {
+            showToast(data.message, 'error');
+        } else if (data.status === 'success') {
+            showToast('Account created successfully! Redirecting...', 'success');
+            setTimeout(() => {
+                window.location.href = data.redirect;
+            }, 1500);
+        }
+    })
+    .catch(err => {
+        console.error('Registration Error:', err);
+        showToast(err.message || 'An unexpected error occurred.', 'error');
+    });
+});
+</script>
+
+</body>
 </html>
