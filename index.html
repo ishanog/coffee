@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeanFlow</title>
     <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="style.css?v=1.1">
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -119,7 +120,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Guji Natural</h3>
                         </div>
-                        <p class="meta">Guji, Ethiopia · 1,900–2,300m</p>
+                        <p class="meta">Guji · 1,900–2,300m</p>
                         <p class="description">
                             From neighboring highlands; delivers intense berry sweetness with a silky, dessert-like
                             finish.
@@ -438,75 +439,6 @@
 
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('.tab-btn');
-            const cards = document.querySelectorAll('.card');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // 1. Remove active state from all tabs and set to clicked tab
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-
-                    // 2. Get region value from dataset
-                    const selectedRegion = tab.dataset.region;
-
-                    // 3. Filter cards
-                    cards.forEach(card => {
-                        const cardRegion = card.dataset.region;
-
-                        if (selectedRegion === 'all' || cardRegion === selectedRegion) {
-                            card.classList.remove('hide');
-                        } else {
-                            card.classList.add('hide');
-                        }
-                    });
-                });
-            });
-        });
-
-        // Exchange rates relative to 1 USD
-        const exchangeRates = {
-            USD: { symbol: "$", rate: 1, prefix: true },
-            NPR: { symbol: "Rs ", rate: 154.5, prefix: true }, // 1 USD ≈ 154.5 NPR
-            EUR: { symbol: "€", rate: 0.92, prefix: true },
-            GBP: { symbol: "£", rate: 0.78, prefix: true }
-        };
-
-        function updatePrices() {
-            const selectedCurrency = document.getElementById("currency").value;
-            const { symbol, rate, prefix } = exchangeRates[selectedCurrency];
-
-            // 1. Update standalone price display tags
-            document.querySelectorAll(".price").forEach((el) => {
-                const usdPrice = parseFloat(el.getAttribute("data-price-usd"));
-                const converted = Math.round(usdPrice * rate);
-
-                // Format e.g., "$22" or "Rs. 3,400"
-                const formattedPrice = prefix
-                    ? `${symbol}${converted.toLocaleString()}`
-                    : `${converted.toLocaleString()} ${symbol}`;
-
-                el.innerText = formattedPrice;
-            });
-
-            // 2. Update button text
-            document.querySelectorAll(".btn-primary").forEach((btn) => {
-                const usdPrice = parseFloat(btn.getAttribute("data-price-usd"));
-                const converted = Math.round(usdPrice * rate);
-
-                const formattedPrice = prefix
-                    ? `${symbol}${converted.toLocaleString()}`
-                    : `${converted.toLocaleString()} ${symbol}`;
-
-                btn.innerText = `Add to Order — ${formattedPrice}`;
-            });
-        }
-
-        // Run once on initial page load
-        document.addEventListener("DOMContentLoaded", updatePrices);
-    </script>
 </body>
 
 
