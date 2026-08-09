@@ -24,10 +24,31 @@
             <li><a href="signin.html">SIGN IN</a></li>
         </ul>
         <button class="cart-button">
-            <!-- <img src="images/cart.jpg" alt="Cart Icon"> -->
+            <img src="./images/cart.svg" alt="Cart Icon"> 
             <span class="cart-text">Orders</span>
         </button>
     </nav>
+
+    <div id="cart-drawer-overlay" class="cart-drawer-overlay">
+        <div id="cart-drawer" class="cart-drawer">
+            <div class="cart-header">
+                <h2>Your Order</h2>
+                <button id="close-cart-btn" class="close-cart-btn">&times;</button>
+            </div>
+            
+            <div id="cart-items-container" class="cart-items-container">
+                <!-- Items rendered dynamically via JS -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total-wrapper">
+                    <span>Total:</span>
+                    <span id="cart-total-price">$0.00</span>
+                </div>
+                <button id="place-order-btn" class="place-order-btn">Place Order</button>
+            </div>
+        </div>
+    </div>
 
     <div class="hero" id="home">
         <div class="hero-text">
@@ -51,9 +72,9 @@
                 <div><strong>12<br></strong>Roast Profiles</div>
             </div>
         </div>
-        <div class="hero-image">
+       <div class="hero-image">
             <img src="images/cozy-coffee-shop-stockcake.jpg" alt="Coffee Beans">
-        </div>
+        </div> 
     </div>
 
     <section class="coffees" id="coffees">
