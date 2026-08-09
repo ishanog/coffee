@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeanFlow</title>
     <link rel="icon" type="image/png" href="images/logo.png">
-  <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="style.css?v=1.1">
     <script src="script.js"></script>
 </head>
 
@@ -22,10 +22,31 @@
             <li><a href="signin.html">SIGN IN</a></li>
         </ul>
         <button class="cart-button">
-            <!-- <img src="images/cart.jpg" alt="Cart Icon"> -->
+            <img src="./images/cart.svg" alt="Cart Icon"> 
             <span class="cart-text">Orders</span>
         </button>
     </nav>
+
+        <div id="cart-drawer-overlay" class="cart-drawer-overlay">
+        <div id="cart-drawer" class="cart-drawer">
+            <div class="cart-header">
+                <h2>Your Order</h2>
+                <button id="close-cart-btn" class="close-cart-btn">&times;</button>
+            </div>
+            
+            <div id="cart-items-container" class="cart-items-container">
+                <!-- Items rendered dynamically via JS -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total-wrapper">
+                    <span>Total:</span>
+                    <span id="cart-total-price">$0.00</span>
+                </div>
+                <button id="place-order-btn" class="place-order-btn">Place Order</button>
+            </div>
+        </div>
+    </div>
 
     <section class="intro">
         <div class="intro-text">
@@ -53,19 +74,22 @@
         <div class="contact-right">
             <div class="cointainer1">
                 <h2>Send a message</h2>
-                <form>
+                <!-- Added form ID contact-form -->
+                <form id="contact-form" action="send-email.php" method="POST">
+                    <!-- Honeypot Anti-Spam Field -->
+                    <input type="text" name="website_hp" style="display:none !important;" tabindex="-1" autocomplete="off">
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="name" required placeholder="Your name">
-                            </div>
-                            <div class="form-group">
+                        </div>
+                        <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email" required placeholder="you@example.com">
-
                         </div>
                     </div>
-                    <label for="subject">Subject</label>
+                    <label for="text">Subject</label>
                     <input type="text" id="text" name="subject" required placeholder="What's on your mind?">
 
                     <label for="message">Message</label>
@@ -76,7 +100,8 @@
             </div>
         </div>
     </section>
-        <section class="footer">
+
+    <section class="footer">
         <div class="copyright">
             <p>&copy; 2026 BeanFlow. All rights reserved.</p>
         </div>
@@ -84,10 +109,32 @@
             <a href="#">Facebook</a>
             <a href="#">Instagram</a>
             <a href="#">Twitter</a>
-
         </div>
     </section>
-</body>
 
+    <script>
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = this;
+        const formData = new FormData(form);
+
+        fetch('send-email.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert(data.message);
+            if (data.status === 'success') {
+                form.reset();
+            }
+        })
+        .catch(err => {
+            console.error('Email error:', err);
+            alert('An error occurred while trying to send your message. Please try again.');
+        });
+    });
+    </script>
+</body>
 
 </html>
