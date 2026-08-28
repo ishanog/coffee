@@ -102,7 +102,8 @@ body {
     width: 20px;
     height: auto;
     margin-right: 8px;
-    display: block; /* Removes unwanted bottom inline whitespace */
+    display: block;
+    /* Removes unwanted bottom inline whitespace */
 }
 
 /* Cart Drawer Layout */
@@ -375,17 +376,17 @@ body {
 }
 
 .hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 
-  mask-image: 
-    linear-gradient(to right, transparent 0%, black 40%, black 60%, rgba(0,0,0,0.6) 100%),
-    linear-gradient(to top, transparent 0%, black 25%);
+    mask-image:
+        linear-gradient(to right, transparent 0%, black 40%, black 60%, rgba(0, 0, 0, 0.6) 100%),
+        linear-gradient(to top, transparent 0%, black 25%);
 
-  -webkit-mask-composite: destination-in;
-  mask-composite: intersect;
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
 }
 
 .hero-bttn button {
@@ -543,16 +544,16 @@ body {
 
 .card:hover {
     background-color: rgb(45, 26, 14);
-     border-radius: 16px;
-     border: 1px solid rgba(255, 255, 255, 0.05);
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    }
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
 
-    /* 2. Zoom the inner image further for a dynamic layer depth */
-    .card:hover .card-image {
-      transform: scale(1.03);
-    }
+/* 2. Zoom the inner image further for a dynamic layer depth */
+.card:hover .card-image {
+    transform: scale(1.03);
+}
 
 .badge {
     position: absolute;
@@ -925,6 +926,14 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+
+
+    mask-image:
+        linear-gradient(to left, transparent 0%, black 15%, black 30%, rgba(0, 0, 0, 0.6) 100%),
+        linear-gradient(to top, transparent 0%, black 25%);
+
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
 }
 
 .login_left {
@@ -1097,7 +1106,7 @@ input:focus {
     display: block;
 }
 
-#signup-form h4{
+#signup-form h4 {
     margin-top: 15px;
     padding: 10px;
     background-color: #f8d7da;
@@ -1160,4 +1169,191 @@ input:focus {
     background-color: #3a1e1e;
     border-left: 6px solid #ef5350;
     color: #ffebee;
+}
+
+/* admin pannel css */
+
+.admin-container {
+    max-width: 1050px;
+    margin: 120px auto 50px;
+    padding: 30px;
+    background-color: #201208;
+    border: 1px solid #BE874B;
+    border-radius: 12px;
+    color: #F3EAD8;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #3d2a1d;
+    padding-bottom: 15px;
+}
+
+.admin-header h1 {
+    color: #BE874B;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.logout-btn {
+    color: #190F0A;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Action Buttons */
+.btn-edit {
+    background-color: #BE874B;
+    color: #190F0A;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.btn-delete {
+    background-color: #3b1818;
+    color: #ef5350;
+    border: 1px solid #ef5350;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.btn-delete:hover {
+    background-color: #c62828;
+    color: #fff;
+}
+
+/* Edit Box */
+.edit-box {
+    background-color: #190F0A;
+    border: 1px solid #BE874B;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.edit-box h3 {
+    margin-top: 0;
+    color: #BE874B;
+}
+
+.edit-form-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.edit-form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form-group label {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #88745C;
+}
+
+.edit-form-group input {
+    height: 40px;
+    border: 1px solid #3d2a1d;
+    background: #201208;
+    border-radius: 6px;
+    padding: 0 12px;
+    color: white;
+}
+
+.btn-clear {
+    background-color: #c62828;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+
+    /* Centering Rules */
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.btn-save {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    height: 42px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: #555;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #3d2a1d;
+}
+
+.admin-table th {
+    background-color: #190F0A;
+    color: #BE874B;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.admin-table tr:hover {
+    background-color: #2a190e;
+}
+
+.wlc-container {
+    color: #F3EAD8;
+    margin-top: 22%;
+    text-align: center;
+
+
+    & h1 {
+        color: #BE874B;
+        font-size: 10rem;
+    }
+}
+
+#typewriter-text {
+  font-family: monospace;
+  border-right: 2px solid #333;
+  display: inline-block;
+  padding-right: 4px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
 }
