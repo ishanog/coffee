@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // --- ADMIN CREDENTIAL CHECK ---
     $admin_email = "admin@beanflow.com";
-    $admin_pass  = "admin123"; // Change this to your desired admin password
+    $admin_pass  = "admin123";
 
     if ($email === $admin_email && $raw_pass === $admin_pass) {
-        $_SESSION['is_admin']  = true;
-        $_SESSION['fullname']  = "BeanFlow Admin";
+        $_SESSION['is_admin'] = true;
+        $_SESSION['fullname'] = "BeanFlow Admin";
 
         echo json_encode([
             'status'   => 'success',
@@ -77,3 +77,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
 }
+?>
