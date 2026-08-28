@@ -1,14 +1,15 @@
 <?php
-$servername   = "localhost";
-$hostusername = "root";
-$hostpassword = "";
-$dbname       = "beanflow";
+$servername = "localhost";
+$username   = "root";
+$password   = "";
+$dbname     = "beanflow";
 
-// Create connection using MySQLi Object-Oriented approach
-$conn = new mysqli($servername, $hostusername, $hostpassword, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die(json_encode([
+        'status'  => 'error', 
+        'message' => 'Database connection failed: ' . $conn->connect_error
+    ]));
 }
 ?>
