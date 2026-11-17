@@ -95,6 +95,7 @@ $users_result = $conn->query($sql);
         <ul class="nav-links">
             <li><a href="user_data.php">USERS</a></li>
             <li><a href="stock.php">STOCK</a></li>
+            <li><a href="orders.php">ORDERS</a></li>
         </ul>
         <button class="cart-button">
             <img src="./images/logout.png" alt="Logout Icon"> 
