@@ -258,15 +258,56 @@ document.addEventListener("DOMContentLoaded", () => {
         return curr.prefix ? `${curr.symbol}${converted.toLocaleString()}` : `${converted.toLocaleString()} ${curr.symbol}`;
     }
 
-    function handleCheckout() {
+    // Guards against duplicate submissions from rapid/multiple clicks
+    let isPlacingOrder = false;
+
+    async function handleCheckout() {
+        if (isPlacingOrder) return; // a request is already in flight
+
         if (cart.length === 0) {
             alert("Your cart is empty! Please add items before placing an order.");
             return;
         }
 
-        alert("Thank you for your order! Your coffee order has been placed successfully.");
-        cart = [];
-        saveAndRender();
-        closeCartDrawer();
+        // Calculate total price in USD
+        const totalAmount = cart.reduce((sum, item) => sum + (item.priceUsd * item.quantity), 0);
+
+        isPlacingOrder = true;
+        const originalBtnText = placeOrderBtn ? placeOrderBtn.textContent : "";
+        if (placeOrderBtn) {
+            placeOrderBtn.disabled = true;
+            placeOrderBtn.textContent = "Placing Order...";
+        }
+
+        try {
+            const response = await fetch('place_order.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    items: cart,
+                    total: totalAmount
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                alert(result.message);
+                cart = [];
+                saveAndRender();
+                closeCartDrawer();
+            } else {
+                alert("Order failed: " + result.message);
+            }
+        } catch (err) {
+            alert("Unable to place your order. Please check your connection and try again.");
+            console.error(err);
+        } finally {
+            isPlacingOrder = false;
+            if (placeOrderBtn) {
+                placeOrderBtn.disabled = false;
+                placeOrderBtn.textContent = originalBtnText;
+            }
+        }
     }
 });
